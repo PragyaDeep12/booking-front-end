@@ -3,10 +3,10 @@ import MovieList from "./MovieList";
 import PlayList from "./PlayList";
 export default function MainComponent() {
   return (
-    <div className="row">
-      <div className="col-md-3" />
-      <div className="col-md-9 main">
+    <div className="">
+      <div className="main">
         <MovieList count={4} />
+        <hr />
         <PlayList count={4} />
       </div>
     </div>

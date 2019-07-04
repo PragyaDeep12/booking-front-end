@@ -9,7 +9,7 @@ export default function MovieList(props) {
   const {
     state: { loginInfo }
   } = useContext(LoginContext);
-  var count = props.count ? 3 : -1;
+  var count = props.count ? 4 : -1;
   return (
     <div className="">
       <div style={{ textAlign: "left" }}>
@@ -19,7 +19,7 @@ export default function MovieList(props) {
       <div style={{ textAlign: "right" }}>
         <Link
           to={"/main/" + loginInfo.city + "/movies"}
-          hidden={count ? false : true}
+          hidden={props.count ? false : true}
         >
           <button
             className="btn btn-link"

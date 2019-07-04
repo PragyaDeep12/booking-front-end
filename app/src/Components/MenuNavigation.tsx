@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import CitySelector from "./CitySelector";
+import LoginContext from "../Contexts/LoginContext";
 export default function MenuNavigation(props) {
+  const {
+    state: { loginInfo }
+  } = useContext(LoginContext);
   const [hidden, setHidden] = useState(true);
   return (
     <nav
@@ -23,11 +27,11 @@ export default function MenuNavigation(props) {
               Movies
             </Link>
           </li>
-          <li className="nav-item ">
+          {/* <li className="nav-item ">
             <Link className="nav-link" to="/">
               Events
             </Link>
-          </li>
+          </li> */}
 
           <li className="nav-item ">
             <Link
@@ -37,7 +41,7 @@ export default function MenuNavigation(props) {
               Plays
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/">
               Sports
             </Link>
@@ -47,12 +51,12 @@ export default function MenuNavigation(props) {
             <Link className="nav-link" to="/">
               Monuments
             </Link>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <Link className="nav-link" to="/">
               Activities
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         {/* <form className="form-inline my-2 my-lg-0">
@@ -89,16 +93,16 @@ export default function MenuNavigation(props) {
                 }
               }}
             >
-              Kolkata
+              {loginInfo.city.toUpperCase()}
               {/* replce this with context.location */}
             </a>
           </li>
-          <li className="nav-item ">
+          {/* <li className="nav-item ">
             <Link className="nav-link" to="/">
-              Language
-              {/* replace this with selected language */}
-            </Link>
-          </li>
+              Language */}
+          {/* replace this with selected language */}
+          {/* </Link>
+          </li> */}
         </ul>
       </div>
     </nav>

@@ -9,7 +9,7 @@ export default function PlayList(props) {
     state: { loginInfo }
   }: any = useContext(LoginContext);
 
-  var count = props.count ? 3 : -1;
+  var count = props.count ? 4 : -1;
   return (
     <div className="">
       <div style={{ textAlign: "left" }}>

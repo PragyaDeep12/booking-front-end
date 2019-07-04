@@ -5,9 +5,8 @@ export default function AllPlays() {
   return (
     <div>
       <Navbar />
-      <div className="row">
-        <div className="col-md-3" />
-        <div className="col-md-9 main">
+      <div className="">
+        <div className="main">
           <PlayList />
         </div>
       </div>
