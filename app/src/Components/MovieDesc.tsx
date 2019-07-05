@@ -61,9 +61,9 @@ export default function MovieDesc({ match }) {
                     <iframe
                       className="trailer-video"
                       src={item.trailerLink}
-                      frameborder="0"
+                      frameBorder="0"
                       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
+                      allowFullScreen
                     />
                   </div>
                   <div className="row desc-body">

@@ -32,8 +32,8 @@
   margin-bottom: calc(5vh);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
-  outline: 1px solid #ffffff;
+  background-color: #4f71b1;
+  outline: 1px solid #4f71b1;
   border-radius: 2px;
 }
 
@@ -475,10 +475,20 @@
 .desc-body {
   padding-bottom: 30px;
 }
+.logout-holder {
+  /* width: 100%; */
+  /* display: flex;
+  text-align: right; */
+  /* padding-top: 10px;
+  padding-left: 80px; */
+}
 .logout-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
+  /* position: relative; */
+  /* text-align: right; */
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin-left: auto; */
 }
 .seat-layout {
   margin: 20px;

@@ -4,7 +4,7 @@ import { Movie } from "../Models/Movie.";
 export default function EachMovie(props) {
   const Movie: Movie = props.movie;
   return (
-    <div className="col-md-4">
+    <div className="col-md-3">
       <Link
         to={
           "/main/" +

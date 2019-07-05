@@ -32,10 +32,10 @@ export default function Navbar(props) {
 
         <MenuNavigation />
       </div>
-      <div className="col-md-3 navbar">
+      <div className="col-md-3 ">
         {console.log(loginInfo)}
         {loginInfo.isLoggedIn === true ? (
-          <span>
+          <div className="text-right logout-holder">
             {/* <img className="online-user user-icon" /> */}
             <button
               className="btn btn-light logout-button"
@@ -45,11 +45,13 @@ export default function Navbar(props) {
             >
               Logout
             </button>
-          </span>
+          </div>
         ) : (
-          <Link to="/signup">
-            <button className="btn btn-primary">Sign In</button>
-          </Link>
+          <div className="text-right logout-holder">
+            <Link to="/signup">
+              <button className="btn btn-primary logout-button">Sign In</button>
+            </Link>
+          </div>
         )}
         {/* <img className="menu-icon" /> */}
       </div>
