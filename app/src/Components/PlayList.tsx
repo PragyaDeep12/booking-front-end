@@ -1,14 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { play } from "../AppConstants";
 import EachMovie from "./EachMovie";
 import { Link } from "react-router-dom";
 import LoginContext from "../Contexts/LoginContext";
+import { Play } from "../Models/Play";
+import { searchPlay } from "../Util";
 export default function PlayList(props) {
-  const [movieList, setMovieList] = useState(play);
+  const [movieList, setMovieList] = useState<Play[]>(play);
   const {
     state: { loginInfo }
   }: any = useContext(LoginContext);
-
+  useEffect(() => {
+    setMovieList(searchPlay(props.searchQuery));
+  }, [props.searchQuery]);
   var count = props.count ? 4 : -1;
   return (
     <div className="">

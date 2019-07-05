@@ -7,6 +7,9 @@ function SearchComponent(props) {
           className="form-control"
           placeholder={props.placeholder}
           aria-label="Search"
+          onChange={e => {
+            props.searchCallback(e.currentTarget.value);
+          }}
         />
       </nav>
     </div>

@@ -1,3 +1,6 @@
+import { Movie } from "./Models/Movie.";
+import { Play } from "./Models/Play";
+
 export const popularCitiesConstant = [
   "chennai",
   "kolkata",
@@ -67,7 +70,7 @@ export const citiesConstant = [
   // CHITRAKOOT	MADHYA PRADESH	CENTRAL INDIA
   // CHITTORGARH	RAJASTHAN
 ];
-export const movie = [
+export const movie: Movie[] = [
   {
     id: 1,
     name: "SpiderMan Far From Home",
@@ -130,7 +133,7 @@ export const movie = [
     gerne: ["drama"]
   }
 ];
-export const play = [
+export const play: Play[] = [
   {
     id: 7,
     name: "Alice In Wonderland",

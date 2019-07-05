@@ -7,7 +7,7 @@ import CitySelector from "./CitySelector";
 import appIcon from "../icons/popcorn.svg";
 import firebase from "firebase";
 import LoginContext from "../Contexts/LoginContext";
-export default function Navbar() {
+export default function Navbar(props) {
   const {
     state: { loginInfo }
   } = useContext(LoginContext);
@@ -23,7 +23,12 @@ export default function Navbar() {
         </label>
       </div>
       <div className="col-md-7">
-        <SearchComponent placeholder="Search" />
+        <SearchComponent
+          placeholder="Search"
+          searchCallback={query => {
+            props.searchCallback(query);
+          }}
+        />
 
         <MenuNavigation />
       </div>
