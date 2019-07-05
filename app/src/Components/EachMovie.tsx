@@ -1,18 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Movie } from "../Models/Movie.";
 export default function EachMovie(props) {
+  const Movie: Movie = props.movie;
   return (
-    <Link
-      to={
-        "/main/" +
-        localStorage.getItem("city") +
-        "/movies/bookTickets/" +
-        props.movie.id +
-        "/" +
-        props.type
-      }
-    >
-      <div className="col-md-4">
+    <div className="col-md-4">
+      <Link
+        to={
+          "/main/" +
+          localStorage.getItem("city") +
+          "/movies/bookTickets/" +
+          props.movie.id +
+          "/" +
+          props.type
+        }
+      >
         <div className="card each-card ">
           <div>
             <img className={props.movie.image + " movie"} />
@@ -26,7 +28,7 @@ export default function EachMovie(props) {
             <span className="movie-name">{props.movie.name}</span>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

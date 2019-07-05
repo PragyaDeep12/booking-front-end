@@ -7,4 +7,6 @@ export interface Play {
   likes?: number;
   ticketPrice?: number;
   gerne?: string[];
+  description?: String;
+  trailerLink?: String;
 }

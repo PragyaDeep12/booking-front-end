@@ -16,7 +16,7 @@ export default function MovieList(props) {
   }, [props.searchQuery]);
   var count = props.count ? 4 : -1;
   return (
-    <div className="">
+    <div className="list">
       <div style={{ textAlign: "left" }}>
         <span className="subheader">Movies</span>
       </div>
@@ -40,7 +40,7 @@ export default function MovieList(props) {
         {movieList.map((item, index) => {
           if (count != 0) {
             count--;
-            return <EachMovie movie={item} type="movie" />;
+            return <EachMovie movie={item} type="movie" key={index} />;
           }
         })}
       </div>

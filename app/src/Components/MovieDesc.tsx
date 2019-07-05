@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { movie, play } from "../AppConstants";
 import BookTicket from "./BookTicket";
+import { Movie } from "../Models/Movie.";
+import { Play } from "../Models/Play";
 export default function MovieDesc({ match }) {
   const [thisMovie, setThisMovie] = useState([]);
   const [amount, setAmount] = useState(0);
@@ -30,13 +32,11 @@ export default function MovieDesc({ match }) {
             return (
               <div className="row">
                 <BookTicket movie={item} />
-                <div className="col-md-4  bg-dark movieDescription">
+                <div className="col-md-4 movieDescription">
                   <img className={item.image + " movie"} />
                   <br />
                   <div>
-                    <label className="form-control subheader">
-                      {item.name}
-                    </label>
+                    <div className="movie-desc-title">{item.name}</div>
                   </div>
                   <div>
                     {item.gerne.map((gerne, index) => {
@@ -53,10 +53,22 @@ export default function MovieDesc({ match }) {
                     </span>
                   </div>
                 </div>
-                <div className="col-md-8  remove-left-padding">
-                  <div className="jumbotron bg-gray">{item.desciption}</div>
-                  <div className="row">
+                <div className="col-md-8  remove-left-padding remove-right-padding">
+                  <div className="jumbotron bg-gray">
+                    <iframe
+                      className="trailer-video"
+                      src={item.trailerLink}
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    />
+                  </div>
+                  <div className="row desc-body">
                     <div className="col">
+                      <div className="description">
+                        <h4>Synopsys</h4>
+                        {item.description}
+                      </div>
                       <button
                         className="btn btn-primary"
                         onClick={() => {

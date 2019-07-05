@@ -7,7 +7,7 @@ export function searchMovie(keyword: String) {
     var tempList: Movie[] = [];
     movie.forEach(movieElem => {
       var movieName: String = movieElem.name;
-      if (movieName.toUpperCase().startsWith(keyword.toUpperCase())) {
+      if (movieName.toUpperCase().includes(keyword.toUpperCase())) {
         tempList.push(movieElem);
       }
     });
@@ -22,7 +22,7 @@ export function searchPlay(keyword: String) {
     var tempList: Play[] = [];
     play.forEach(playElem => {
       var playName: String = playElem.name;
-      if (playName.toUpperCase().startsWith(keyword.toUpperCase())) {
+      if (playName.toUpperCase().includes(keyword.toUpperCase())) {
         tempList.push(playElem);
       }
     });

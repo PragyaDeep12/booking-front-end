@@ -36,9 +36,9 @@ export default function Navbar(props) {
         {console.log(loginInfo)}
         {loginInfo.isLoggedIn === true ? (
           <span>
-            <img className="online-user user-icon" />
+            {/* <img className="online-user user-icon" /> */}
             <button
-              className="btn btn-light"
+              className="btn btn-light logout-button"
               onClick={() => {
                 firebase.auth().signOut();
               }}
