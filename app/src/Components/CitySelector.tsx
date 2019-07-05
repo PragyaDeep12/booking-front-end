@@ -12,6 +12,7 @@ export default function CitySelector(props) {
     actions: { setCity }
   }: any = useContext(LoginContext);
   const cities = citiesConstant;
+  const [pCities, setPCities] = useState(popularCities);
   const [otherCityList, setOtherCityList] = useState(cities);
   const [hidden, setHidden] = useState(true);
   const selectCity = city => {
@@ -27,19 +28,27 @@ export default function CitySelector(props) {
           placeholder="Search for a city"
           searchCallback={key => {
             console.log(key);
-            if (key)
+            if (key) {
+              setPCities(
+                [...popularCities].filter(city => {
+                  return city.toUpperCase().startsWith(key.toUpperCase());
+                })
+              );
               setOtherCityList(
                 [...cities, ...popularCities].filter(city => {
                   return city.toUpperCase().startsWith(key.toUpperCase());
                 })
               );
-            else setOtherCityList(cities);
+            } else {
+              setPCities(popularCities);
+              setOtherCityList(cities);
+            }
           }}
         />
 
         <br />
         <div className="row " style={{ wordWrap: "break-word" }}>
-          {popularCities.map((item, index) => {
+          {pCities.map((item, index) => {
             return (
               <EachCity cityName={item} setCity={selectCity} key={index} />
             );
