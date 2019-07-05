@@ -12,6 +12,7 @@ export default function CitySelector(props) {
     actions: { setCity }
   }: any = useContext(LoginContext);
   const cities = citiesConstant;
+  const [otherCityList, setOtherCityList] = useState(cities);
   const [hidden, setHidden] = useState(true);
   const selectCity = city => {
     setCity(city);
@@ -22,7 +23,19 @@ export default function CitySelector(props) {
   return (
     <div className="loading-background center  ">
       <div className="city-selector-container">
-        <SearchComponent placeholder="Search for a city" />
+        <SearchComponent
+          placeholder="Search for a city"
+          searchCallback={key => {
+            console.log(key);
+            if (key)
+              setOtherCityList(
+                [...cities, ...popularCities].filter(city => {
+                  return city.toUpperCase().startsWith(key.toUpperCase());
+                })
+              );
+            else setOtherCityList(cities);
+          }}
+        />
 
         <br />
         <div className="row " style={{ wordWrap: "break-word" }}>
@@ -49,7 +62,7 @@ export default function CitySelector(props) {
             <span>Other Cities</span>
           </div>
           <div className="row">
-            {cities.map((item, index) => {
+            {otherCityList.map((item, index) => {
               return (
                 <div
                   key={index}

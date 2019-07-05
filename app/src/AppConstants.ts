@@ -12,7 +12,7 @@ export const popularCitiesConstant = [
   "pune"
 ];
 
-export const citiesConstant = [
+export const citiesConstant: String[] = [
   "AGARTALA",
   "AGRA",
   "AHMEDABAD",
