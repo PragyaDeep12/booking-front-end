@@ -41,7 +41,10 @@ export default function MovieDesc({ match }) {
                   <div>
                     {item.gerne.map((gerne, index) => {
                       return (
-                        <label className="btn btn-outline-success btn-margin bg-light">
+                        <label
+                          className="btn btn-outline-success btn-margin bg-light"
+                          key={index}
+                        >
                           {gerne}
                         </label>
                       );

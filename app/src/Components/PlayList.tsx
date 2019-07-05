@@ -36,7 +36,7 @@ export default function PlayList(props) {
         {movieList.map((item, index) => {
           if (count != 0) {
             count--;
-            return <EachMovie movie={item} type="play" />;
+            return <EachMovie movie={item} type="play" key={index} />;
           }
         })}
       </div>

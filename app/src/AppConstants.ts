@@ -1,5 +1,6 @@
 import { Movie } from "./Models/Movie.";
 import { Play } from "./Models/Play";
+import { Seat } from "./Models/Seat";
 
 export const popularCitiesConstant = [
   "chennai",
@@ -202,5 +203,68 @@ export const play: Play[] = [
     trailerLink: "https://www.youtube.com/embed/H_3T4DGw10U",
     description:
       "The Movieclips Trailers channel is your destination for hot new trailers the second they drop. Whether they are blockbusters, indie films, or that new comedy you've been waiting for, the Movieclips Trailers team is there day and night to make sure all the hottest new movie trailers are available whenever you need them, as soon as you can get them. All the summer blockbusters, Man of Steel, Oblivion, Pacific Rim, After Earth, The Lone Ranger, Star Trek Into Darkness and more! They are all available on Movieclips Trailers."
+  }
+];
+
+export const seats: Seat[] = [
+  {
+    row: "A",
+    columns: [
+      { column: 1, booked: false },
+      { column: 2, booked: false },
+      { column: 3, booked: false },
+      { column: 4, booked: false },
+      { column: 5, booked: false },
+      { column: 6, booked: false },
+      { column: 7, booked: false },
+      { column: 8, booked: false },
+      { column: 9, booked: false },
+      { column: 10, booked: false }
+    ]
+  },
+  {
+    row: "B",
+    columns: [
+      { column: 1, booked: false },
+      { column: 2, booked: false },
+      { column: 3, booked: false },
+      { column: 4, booked: false },
+      { column: 5, booked: false },
+      { column: 6, booked: false },
+      { column: 7, booked: false },
+      { column: 8, booked: false },
+      { column: 9, booked: false },
+      { column: 10, booked: false }
+    ]
+  },
+  {
+    row: "C",
+    columns: [
+      { column: 1, booked: false },
+      { column: 2, booked: false },
+      { column: 3, booked: false },
+      { column: 4, booked: false },
+      { column: 5, booked: false },
+      { column: 6, booked: false },
+      { column: 7, booked: false },
+      { column: 8, booked: false },
+      { column: 9, booked: false },
+      { column: 10, booked: false }
+    ]
+  },
+  {
+    row: "D",
+    columns: [
+      { column: 1, booked: false },
+      { column: 2, booked: false },
+      { column: 3, booked: false },
+      { column: 4, booked: false },
+      { column: 5, booked: false },
+      { column: 6, booked: false },
+      { column: 7, booked: false },
+      { column: 8, booked: false },
+      { column: 9, booked: false },
+      { column: 10, booked: false }
+    ]
   }
 ];

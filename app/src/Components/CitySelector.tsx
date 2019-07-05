@@ -27,7 +27,9 @@ export default function CitySelector(props) {
         <br />
         <div className="row " style={{ wordWrap: "break-word" }}>
           {popularCities.map((item, index) => {
-            return <EachCity cityName={item} setCity={selectCity} />;
+            return (
+              <EachCity cityName={item} setCity={selectCity} key={index} />
+            );
           })}
         </div>
 
@@ -50,6 +52,7 @@ export default function CitySelector(props) {
             {cities.map((item, index) => {
               return (
                 <div
+                  key={index}
                   className="col-md-3 "
                   onClick={() => {
                     selectCity(item);

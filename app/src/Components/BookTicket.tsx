@@ -1,18 +1,43 @@
 import React, { useState, useEffect, useContext } from "react";
 import LoginContext from "../Contexts/LoginContext";
 import { Link } from "react-router-dom";
+import SeatLayout from "./SeatLayout";
 export default function BookTicket(props) {
   const {
     state: { loginInfo }
   } = useContext(LoginContext);
-  const tickets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const [ticketCount, setTicketCount] = useState(2);
-  const [amount, setAmount] = useState();
-  useEffect(() => {
-    console.log(props.movie.ticketPrice);
-    console.log(props.movie);
-    setAmount(props.movie.ticketPrice * 2);
-  }, []);
+  // const tickets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [bookedTickets, setBookedTickets] = useState<
+    { row: String; column: number; booked: boolean }[]
+  >([]);
+  // const [ticketCount, setTicketCount] = useState(2);
+  // const [amount, setAmount] = useState();
+  // useEffect(() => {
+  //   console.log(props.movie.ticketPrice);
+  //   console.log(props.movie);
+  //   setAmount(props.movie.ticketPrice * 2);
+  // }, []);
+  const updateBookedTicket = (bookedTicket: {
+    row: String;
+    column: number;
+    booked: boolean;
+  }) => {
+    var find = bookedTickets.find(item => {
+      return (
+        item.row === bookedTicket.row && item.column === bookedTicket.column
+      );
+    });
+    if (find) {
+      var temp = bookedTickets.filter(
+        item =>
+          item.row !== bookedTicket.row || item.column !== bookedTicket.column
+      );
+
+      setBookedTickets(temp);
+    } else {
+      setBookedTickets([...bookedTickets, bookedTicket]);
+    }
+  };
   return (
     <div id="bookticket" hidden={true}>
       <div
@@ -21,33 +46,36 @@ export default function BookTicket(props) {
       >
         <div className="book-ticket-container">
           <div className="jumbotron">
-            <div className="comic">How many Tickets ?</div>
+            <div className="comic">Book Your Seats</div>
             <br />
-            {[...Array(ticketCount)].map((item, index) => {
-              return <img className={"popcorn"} />;
+            {bookedTickets.map((item, index) => {
+              return <img className={"popcorn"} key={index} />;
             })}
           </div>
-          <div className="btn-group mr-2">
-            {tickets.map((item, index) => {
+          <span>{bookedTickets.length > 0 ? <h5>Booked Seats :</h5> : ""}</span>
+          <div>
+            {bookedTickets.map((bookedTicket, index) => {
               return (
-                <button
-                  className="btn btn-outline-success"
-                  onClick={() => {
-                    setTicketCount(item);
-                    setAmount(item * props.movie.ticketPrice);
-                  }}
-                >
-                  {item}
-                </button>
+                <span key={index}>
+                  {bookedTicket.row + "" + bookedTicket.column + ", "}
+                </span>
               );
             })}
           </div>
           <div>
-            <br />
-            <br />
+            <SeatLayout
+              bookedTickets={bookedTickets}
+              bookTicketCallback={bookedTicket => {
+                updateBookedTicket(bookedTicket);
+              }}
+            />
             <Link to={loginInfo.isLoggedIn === true ? "/payment" : "/login"}>
-              <button className="btn btn-primary">
-                Proceed to pay &#8377; {amount}
+              <button
+                className="btn btn-primary"
+                disabled={bookedTickets.length === 0}
+              >
+                Proceed to pay &#8377;{" "}
+                {bookedTickets.length * props.movie.ticketPrice}
               </button>
             </Link>
             <br />

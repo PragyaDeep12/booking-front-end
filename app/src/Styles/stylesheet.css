@@ -426,11 +426,15 @@
   background: whitesmoke;
 }
 .book-ticket-container {
-  margin: 15vh 25vw;
+  /* margin: 15vh; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
   border-radius: 24px;
-  width: 50vw;
+  width: calc(300px + 10vw);
   height: 70vh;
   background: whitesmoke;
+  transform: translate(calc(-150px - 5vw), calc(-35vh));
 }
 .popcorn {
   width: 30px;
@@ -475,4 +479,40 @@
   position: fixed;
   top: 10px;
   right: 10px;
+}
+.seat-layout {
+  margin: 20px;
+  background-color: #e9e8e8;
+}
+
+.each-seat {
+  width: calc(12px + 1vw);
+  height: calc(10px + 1vw);
+  background-color: rgb(241, 241, 241);
+  border-color: #2c2c2c;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+  font-size: calc(5px + 1vw);
+  border-radius: 3px;
+}
+.each-seat-booked {
+  width: calc(12px + 1vw);
+  height: calc(10px + 1vw);
+  background-color: rgb(68, 158, 105);
+  color: white;
+  border-color: #2c2c2c;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+  font-size: calc(5px + 1vw);
+  border-radius: 3px;
+}
+.screen {
+  background-color: #f5c8c8;
+  margin-bottom: 30px;
 }
