@@ -101,9 +101,9 @@ function LoginWrapper(props) {
     }
   }, []);
   console.log("called");
-  // if (loginInfo && loginInfo.isLoggedIn === false) {
-  //   return <LoginSignup page={props.page} />;
-  // }
+  if (loginInfo && loginInfo.isLoggedIn === false) {
+    return <LoginSignup page={props.page} />;
+  }
   if (loginInfo && loginInfo.city !== null) {
     return <Redirect to={"/main/" + loginInfo.city} />;
   } else {
