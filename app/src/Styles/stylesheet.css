@@ -526,3 +526,19 @@
   background-color: #f5c8c8;
   margin-bottom: 30px;
 }
+.google-sigin {
+  background-color: #f1e0cf;
+  padding: 10px;
+  border-radius: 3px;
+  outline: none !important;
+  border: none !important;
+  border-width: 0px !important;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.google-sigin > span > span {
+  /* signin text */
+  padding-left: 10px;
+  line-height: 2;
+  vertical-align: middle;
+}

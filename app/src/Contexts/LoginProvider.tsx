@@ -18,16 +18,30 @@ export default function LoginProvider(props) {
       .signInWithEmailAndPassword(email, password)
       .then(async user => {
         console.log("loggedin");
-        setLoginInfo({
-          ...loginInfo,
-          isLoggedIn: true,
-          user: { email: email }
-        });
+        // setLoginInfo({
+        //   ...loginInfo,
+        //   isLoggedIn: true,
+        //   user: { email: email }
+        // });
       })
       .catch(err => {
         console.log(err.message);
         // openSnackbar({ message: err.message, timeout: 3000 });
       });
+  };
+  const gmailLogin = async () => {
+    console.log("called");
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    //  firebase.auth().signInWithPopup(provider).
   };
   const signUp = async (email, password) => {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -43,7 +57,8 @@ export default function LoginProvider(props) {
           login,
           signUp,
           setCity,
-          setLoginDetails
+          setLoginDetails,
+          gmailLogin
         }
       }}
     >

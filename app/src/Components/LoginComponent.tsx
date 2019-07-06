@@ -2,11 +2,11 @@ import * as React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useContext, useState } from "react";
 import LoginContext from "../Contexts/LoginContext";
-
+import GoogleIcon from "../icons/search.svg";
 export default function LoginComponent(props: any) {
   const {
     state: { loginInfo },
-    actions: { login }
+    actions: { login, gmailLogin }
   } = useContext<any>(LoginContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,6 +58,20 @@ export default function LoginComponent(props: any) {
             Login
           </button>
         </form>
+        <div>
+          <button
+            className="google-sigin"
+            onClick={() => {
+              // console.log("hello");
+              gmailLogin();
+            }}
+          >
+            <span>
+              <img src={GoogleIcon} />
+              <span>Login With Gmail</span>
+            </span>
+          </button>
+        </div>
         <Link to="/signup" className="hyperlink">
           Register
         </Link>

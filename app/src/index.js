@@ -6,14 +6,14 @@ import "./Styles/stylesheet.css";
 import App from "./App";
 import firebase from "firebase";
 import * as serviceWorker from "./serviceWorker";
-var firebaseConfig = {
-  apiKey: "AIzaSyBcp3foKTJXDg-zxijmR1nS3Gwf28LXQHo",
-  authDomain: "chatapp-529b9.firebaseapp.com",
-  databaseURL: "https://chatapp-529b9.firebaseio.com",
-  projectId: "chatapp-529b9",
+const firebaseConfig = {
+  apiKey: "AIzaSyBGNUYLBU74zRA28rd9Qi-bM1IY20zNC4w",
+  authDomain: "popcorn-cinemas.firebaseapp.com",
+  databaseURL: "https://popcorn-cinemas.firebaseio.com",
+  projectId: "popcorn-cinemas",
   storageBucket: "",
-  messagingSenderId: "884053658028",
-  appId: "1:884053658028:web:01b7a181476a366d"
+  messagingSenderId: "907631886056",
+  appId: "1:907631886056:web:31693c1e1b33fe0d"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

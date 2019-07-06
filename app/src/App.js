@@ -20,18 +20,18 @@ function App() {
     <div className="App">
       <LoginProvider>
         <Router>
-          <PrivateRoute
+          <Route
             path="/signup"
             exact={true}
             component={() => {
-              return <LoginSignup page="signup" />;
+              return <LoginWrapper page="signup" />;
             }}
           />
-          <PrivateRoute
+          <Route
             path="/login"
             exact={true}
             component={() => {
-              return <LoginSignup page="login" />;
+              return <LoginWrapper page="login" />;
             }}
           />
           <PrivateRoute
@@ -76,15 +76,18 @@ function LoginWrapper(props) {
       isMounted = true;
       var city = localStorage.getItem("city");
       console.log(city);
-
+      console.log("init");
       firebase.auth().onAuthStateChanged(
         user => {
+          console.log("login updated");
+          console.log(user);
           if (user) {
             if (city)
               setLoginDetails({ city: city, isLoggedIn: true, user: user });
             else {
               setLoginDetails({ ...loginInfo, isLoggedIn: true, user: user });
             }
+            console.log("login updated");
           } else {
             if (city)
               setLoginDetails({ city: city, isLoggedIn: false, user: null });
@@ -98,6 +101,9 @@ function LoginWrapper(props) {
     }
   }, []);
   console.log("called");
+  if (loginInfo && loginInfo.isLoggedIn === false) {
+    return <LoginSignup page={props.page} />;
+  }
   if (loginInfo && loginInfo.city !== null) {
     return <Redirect to={"/main/" + loginInfo.city} />;
   } else {
@@ -117,6 +123,9 @@ function PrivateRoute({ component: Component, ...rest }) {
       render={props => {
         if (loginInfo.city === null) {
           return <Redirect to="/" />;
+        }
+        if (loginInfo && loginInfo.isLoggedIn === false) {
+          return <LoginSignup page={props.page} />;
         }
         return <Component {...props} />;
       }}
