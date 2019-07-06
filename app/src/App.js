@@ -101,9 +101,9 @@ function LoginWrapper(props) {
     }
   }, []);
   console.log("called");
-  if (loginInfo && loginInfo.isLoggedIn === false) {
-    return <LoginSignup page={props.page} />;
-  }
+  // if (loginInfo && loginInfo.isLoggedIn === false) {
+  //   return <LoginSignup page={props.page} />;
+  // }
   if (loginInfo && loginInfo.city !== null) {
     return <Redirect to={"/main/" + loginInfo.city} />;
   } else {
@@ -124,9 +124,9 @@ function PrivateRoute({ component: Component, ...rest }) {
         if (loginInfo.city === null) {
           return <Redirect to="/" />;
         }
-        if (loginInfo && loginInfo.isLoggedIn === false) {
-          return <LoginSignup page={props.page} />;
-        }
+        // if (loginInfo && loginInfo.isLoggedIn === false) {
+        //   return <LoginSignup page={props.page} />;
+        // }
         return <Component {...props} />;
       }}
     />
